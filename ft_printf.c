@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: syanak <syanak@student.42kocaeli.com.tr >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:44:03 by syanak            #+#    #+#             */
-/*   Updated: 2024/11/12 02:03:10 by syanak           ###   ########.fr       */
+/*   Updated: 2024/11/30 12:55:48 by syanak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdarg.h>
 #include "ft_printf.h"
 
@@ -51,7 +50,7 @@ int	ft_printf(const char *ptr, ...)
 
 	va_start(va, ptr);
 	ret = 0;
-	if (!ptr)
+	if (!ptr || (*ptr == '%' && *(ptr + 1) == '\0'))
 		return (-1);
 	while (*ptr)
 	{
@@ -63,11 +62,10 @@ int	ft_printf(const char *ptr, ...)
 			ret += print;
 			ptr++;
 		}
-		else if (*ptr == '%' && !ft_chech(ptr + 1))
-			return (-1);
 		else if (++ret && ft_putchar(*ptr) == -1)
 			return (-1);
 		ptr++;
 	}
 	return (va_end(va), ret);
 }
+// "asdagdasfnas %üz 123456"

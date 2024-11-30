@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: syanak <syanak@student.42kocaeli.com.tr >  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 02:07:58 by syanak            #+#    #+#              #
-#    Updated: 2024/11/12 02:25:28 by syanak           ###   ########.fr        #
+#    Updated: 2024/11/30 12:19:27 by syanak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ clean :
 fclean : clean
 	rm -rf $(NAME)
 
-re :	fclean
-	all
+re :	fclean all
 
 .PHONY: all clean fclean re
