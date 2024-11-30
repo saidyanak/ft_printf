@@ -51,19 +51,19 @@ int	ft_printf(const char *ptr, ...)
 	va_start(va, ptr);
 	ret = 0;
 	if (!ptr || (*ptr == '%' && *(ptr + 1) == '\0'))
-		return (-1);
+		return (va_end(va), -1);
 	while (*ptr)
 	{
 		if (*ptr == '%' && ft_chech(ptr + 1))
 		{
 			print = ft_format(va, ptr + 1);
 			if (print == -1)
-				return (-1);
+				return (va_end(va), -1);
 			ret += print;
 			ptr++;
 		}
 		else if (++ret && ft_putchar(*ptr) == -1)
-			return (-1);
+			return (va_end(va), -1);
 		ptr++;
 	}
 	return (va_end(va), ret);
