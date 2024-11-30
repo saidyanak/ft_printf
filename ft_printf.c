@@ -68,4 +68,3 @@ int	ft_printf(const char *ptr, ...)
 	}
 	return (va_end(va), ret);
 }
-// "asdagdasfnas %üz 123456"
